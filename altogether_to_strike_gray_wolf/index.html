@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>一起来打灰太狼</title>
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<div id="wrap">
+			<img src="img/myrank_bg.jpg" id="rank-bg" />
+			<img src="" id="hole"/>
+			<div id="score-record"/>0</div>
+			<div id="progress"><img src="img/progress.png" /></div>
+			<div id="level">第<span>1</span>关</div>
+			<button id="ready-btn">准备</button>
+			<button id="s-query-btn">查看历史</button>
+			<div id="count-down">3</div>
+			<div id="start-cover">
+				<img src="img/game_name.png" />
+				<button id="start-btn">开始游戏</button><br />
+				<button id="rule-btn">游戏规则</button>
+				<div id="game-produce">
+					<b>游戏规则说明：</b>
+					<p>这是游戏规则，这是有些规则这是游戏规则，这是有些规则这是游戏规则，这是有些规则</p>
+				</div>
+			</div>
+			<div id="over-cover">
+				<p id="pass-hint">是否通关</p>
+				<h2>本局战绩</h2>
+				<p id="current-level">第<span>0</span>关</p>
+				<div id="evaluate">本局得分：<b>暂无记录</b></div>
+				<div id="current-score">当前得分：<b>暂无记录</b></div>
+				<div id="best-score">最高记录：<b>暂无记录</b></div>
+				<button id="continue-btn">继续游戏</button>
+				<button id="restart-btn">重新开始</button>
+				<button id="query-btn">查看记录</button>
+			</div>
+			<div id="record-cover">
+				<table id="history">
+					<caption>我的历史战绩</caption>
+					<tr><th class="level">关卡</th><th class="time">时间</th><th class="score">得分</th></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+					<tr><td class="level">10</td><td class="time"><span>2018.12.07</span><span>10:32:21</span></td><td class="score">890</td></tr>
+				</table>
+				<p>只展示最近10次记录</p>
+				<label>最高记录：<span>0</span></label>
+				<button id="back-btn">返回游戏</button>
+			</div>
+		</div>
+		<script src="index.js"></script>
+	</body>
+</html>

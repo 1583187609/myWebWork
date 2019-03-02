@@ -1,0 +1,113 @@
+/*reset.css*/
+*{
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+}
+ul li{
+	list-style: none;
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+[class$="-btn"],[type="button"],button{
+	cursor: pointer;
+	border: 1px solid #999;
+}
+input{
+	border: 1px solid #999;
+}
+iframe{
+	border: none;
+}
+.clear:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.take-space{
+	font-size: 0;
+	height: 17px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+/*show-page.css*/
+.show-wrap{
+	font-size: 14px;
+	width: 736px;
+	margin: 0 auto;
+	padding: 30px 45px 30px 13px;
+	background-color: #eef;
+}
+.show-wrap h1{
+	font-size: 24px;
+	padding-bottom: 5px;
+}
+.show-wrap h2{
+	font-size: 18px;
+}
+.show-wrap p{
+	margin-left: 1em;
+}
+/*question-and-answer.css  and note.css*/
+.q-and-a-wrap,.note-wrap{
+	font-size: 12px;
+	width: 346px;
+}
+.q-and-a-wrap ol,.note-wrap ol{
+	padding-left: 23px;
+}
+.q-and-a-wrap ol li,.note-wrap ol li{
+	position: relative;
+	font-size: 12px;
+	padding: 5px 0;
+	margin: 0 6px 0 2px;
+	border-bottom: 1px dashed #ccc;
+}
+.q-and-a-wrap ol li input,.note-wrap ol li input{
+	position: absolute;
+	right: 0;
+	bottom: 6px;
+	display: none;
+}
+.q-and-a-wrap ol li:hover .icon-box,.note-wrap ol li:hover .icon-box{
+	display: block;
+}
+.q-and-a-wrap ol li:hover input,.note-wrap ol li:hover input{
+	display: block;
+}
+/*.q-and-a-wrap和.note-wrap下的.icon-box*/
+.icon-box{
+	padding-top: 6px;
+	display: none;
+}
+.icon-box img{
+	cursor: pointer;
+	height: 16px;
+	width: 16px;
+	border: 1px solid #000;
+	opacity: .4;
+	margin-right: 5px;
+	border-radius: 4px;
+}
+.icon-box img:hover{
+	opacity: 1;
+}
+.icon-box input[type='checkbox']{
+	float: right;
+}
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html,body{
+	font-family: "微软雅黑";
+	height: 100%;
+	width: 100%;
+	background-color: lightcyan;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	color: #ffa500;
+	text-decoration: underline;
+}
+input::-moz-placeholder{
+	color: #999;
+}
+input::-ms-input-placeholder{
+	color: #999;
+}
+input::-webkit-input-placeholder{
+	color: #999;
+}
+.clear:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.show{
+	display: block;
+}
+.hidden{
+	display: none;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>五子棋游戏</title>
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<canvas id="canvas-1" width="600" height="600">您的浏览器不支持canvas</canvas>
+		<div id="chessboard-cover">
+			<input id="white-chess-num" type="text"/>
+			<input id="black-chess-num" type="text"/>
+			<span id="white-think">白方思考中…</span>
+			<span id="black-think">黑方思考中…</span>
+			<div id="win-box">
+				<p><b>黑</b><strong>方赢</strong></p>
+				<button id="again-btn">再来一局</button>
+				<button id="query-btn">查看详情</button>
+				<button id="continue-btn">继续游戏</button>
+			</div>
+			<div id="alert-window">
+				<p id="ban-place">此处已经有棋子了！</p>
+				<button id="ok-btn">确定</button>
+			</div>
+		</div>
+		<script src="index.js"></script>
+	</body>
+</html>

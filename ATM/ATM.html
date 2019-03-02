@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>ATM2</title>
+		<link rel="stylesheet" href="ATM.css" />
+	</head>
+	<body>
+		<div id="wrap">
+			<marquee id="banner">欢迎使用ATM自助系统，请根据画面提示进行操作！</marquee>
+			<ul id="screen">
+				<li class="page">
+					<i>中国建设银行欢迎您！</i>
+					<h2>欢迎</h2>
+					<h1>欢迎使用ATM自助系统</h1>
+					<label>请插入磁卡或输入银行卡账号<br />
+						<input type="text" id="card-inp" autocomplete="off" maxlength="23" />
+					</label>
+					<b>温馨提示：请妥善保管好您的随身物品</b>
+				</li>
+				<li class="page">
+					<i>中国建设银行欢迎您！</i>
+					<h2>登录</h2>
+					<label>请输入密码<br />
+						<input type="password" id="password-inp" autocomplete="new-password" autocomplete="off" maxlength="6"/>
+					</label>
+					<button class="page-btn back-card-btn">退卡</button>
+					<b>温馨提示：请妥善保管好您的随身物品</b>
+				</li>
+				<li class="page">
+					<i>中国建设银行欢迎您！</i>
+					<h2>主页</h2>
+					<p>请选择您所需办理的业务</p>
+					<button class="page-btn money-btn" id="put-money-btn">存款</button>
+					<button class="page-btn money-btn" id="out-money-btn">取款</button>
+					<button class="page-btn money-btn" id="move-money-btn">转账</button>
+					<button class="page-btn money-btn" id="query-money-btn">查询余额</button>
+					<button class="page-btn money-btn" id="pay-history-btn">消费记录</button>
+					<button class="page-btn back-card-btn">退卡</button>
+					<b>温馨提示：请妥善保管好您的随身物品</b>
+				</li>
+				<li class="page">
+					<i>中国建设银行欢迎您！</i>
+					<h2>存款</h2>
+					<label>请输入存款金额<br />
+						<input type="text" id="put-money-inp" autocomplete="off" maxlength="5"/>
+					</label>
+					<button class="page-btn back-home-btn">返回主页</button>
+					<button class="page-btn back-card-btn">退卡</button>
+					<b>温馨提示：请妥善保管好您的随身物品</b>
+				</li>
+				<li class="page">
+					<i>中国建设银行欢迎您！</i>
+					<h2>取款</h2>
+					<label>请输入取款金额<br />
+						<input type="text" id="out-money-inp" autocomplete="off" maxlength="5"/>
+					</label>
+					<button class="page-btn back-home-btn">返回主页</button>
+					<button class="page-btn back-card-btn">退卡</button>
+					<b>温馨提示：请妥善保管好您的随身物品</b>
+				</li>
+				<li class="page">
+					<i>中国建设银行欢迎您！</i>
+					<h2>转账</h2>
+					<label>请输入对方账号<br />
+						<input type="text" id="another-card-inp" autocomplete="off" maxlength="23"/>
+					</label>
+					<label>请输入转账金额<br />
+						<input type="text" id="move-money-inp" autocomplete="off" maxlength="7"/>
+					</label>
+					<button class="page-btn back-home-btn">返回主页</button>
+					<button class="page-btn back-card-btn">退卡</button>
+					<b>温馨提示：请妥善保管好您的随身物品</b>
+				</li>
+				<li class="page">
+					<i>中国建设银行欢迎您！</i>
+					<h2>查询余额</h2>
+					<label>您当前的余额为<br />
+						<input type="text" id="balance-inp" disabled="disabled" autocomplete="off"/>
+					</label>
+					<button class="page-btn back-home-btn">返回主页</button>
+					<button class="page-btn back-card-btn">退卡</button>
+					<b>温馨提示：请妥善保管好您的随身物品</b>
+				</li>
+				<li class="page">
+					<i>中国建设银行欢迎您！</i>
+					<h2>消费记录</h2>
+					<div id="headline">您近期的消费情况如下<span>共有</span><strong>0</strong><span>条记录</span></div>
+					<ul class="payListHead clear"><li class="payOrder">序号</li><li class="payTime">时间</li><li class="payType">类型</li><li class="paySum">金额</li></ul>
+					<div id="payLists">
+						<!--<ul class="payList clear"><li class="payTime">2018.12.04 12:56:48</li><li class="payType">转账收入</li><li class="paySum">￥500</li></ul>
+						<ul class="payList clear"><li class="payTime">2018.12.04 12:56:48</li><li class="payType">转账收入</li><li class="paySum">￥500</li></ul>-->
+					</div>
+					<div id="payHisFoot">
+						<button id="foward-btn"><上一页</button>
+						共<strong>1</strong>页，当前第<strong>1</strong>页
+						<button id="behind-btn">下一页></button>
+					</div>
+					<button class="page-btn back-home-btn">返回主页</button>
+					<button class="page-btn back-card-btn">退卡</button>
+					<b>温馨提示：请妥善保管好您的随身物品</b>
+				</li>
+			</ul>
+			<div id="operate">
+				<div id="card-in">
+					<div id="card-text">插卡口</div>
+					<div id="card-slot">
+						<div id="card-line"></div>
+					</div>
+				</div>
+				<div id="money-out">
+					<div id="money-line"></div>
+					<div id="money-ward">出钞口</div>
+					<div id="money-hole">
+						<div id="money-box"></div>
+					</div>
+				</div>
+				<div id="keyboard">
+					<button class="num-btn">1</button>
+					<button class="num-btn">2</button>
+					<button class="num-btn">3</button>
+					<button class="num-btn">4</button>
+					<button class="num-btn">5</button>
+					<button class="num-btn">6</button>
+					<button class="num-btn">7</button>
+					<button class="num-btn">8</button>
+					<button class="num-btn">9</button>
+					<button class="num-btn">0</button>
+					<button class="num-btn" id="ok">确认</button>
+					<button class="num-btn" id="del">删除</button>
+				</div>
+				<div id="operate-produce">温馨提示：请留意陌生人，注意安全输入密码；请妥善保管好您的随身物品</div>
+			</div>
+		</div>
+		<div id="cards-box"></div>
+		<div id="use-produce">
+			<h3>使用说明</h3>
+			<p>1、可使用实体键盘或本界面（网页）模拟键盘进行输入，但是为了更好的逼真体验效果，请只使用鼠标和本界面（网页）提供的键盘进行操作！</p>
+			<p>2、可拖动信用卡至插卡口处，或输入已有信用卡的卡号，然后输入密码<b>（密码为卡号的后六位）</b>，才可进行后续操作。</p>
+			<p>3、有关信用卡的用户数据存储在ATM_user.js中。</p>
+			<p>4、可通过在ATM_user.js文件中增加用户数量，从而增加信用卡数量。</p>
+                                                <p>5、自动记录用户资金流动情况，在“消费记录”选项中可以查看历史记录。但是本作品没有采用本地存储，刷新网页即可将所有用户信息还原。</p>
+			<p>6、建议使用谷歌、火狐等主流浏览器。</p>
+		</div>
+		<script type="text/javascript" src="ATM_user.js"></script>
+		<script type="text/javascript" src="ATM.js"></script>
+	</body>
+</html>

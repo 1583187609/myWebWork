@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>总结1</title>
+		<link rel="stylesheet" href="../reset.css" />
+		<style>
+			td{
+				padding: 2px 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="show-wrap">
+			<h1>CSS选择器（待记忆）</h1>
+			<table border="1" cellspacing="0">
+				<tr><th>选择符</th><th>描述</th></tr>
+				<tr><td>E+F</td><td>选择紧贴在E元素之后F元素。</td></tr>
+				<tr><td>E~F</td><td>选择E元素所有兄弟元素F（同级内）。</td></tr>
+				<tr><td>E[att]</td><td>选择具有att属性的E元素。</td></tr>
+				<tr><td>E[att="val"]</td><td>选择具有att属性且属性值等于val的E元素。</td></tr>
+				<tr><td>E[att~="val"]</td><td>选择具有att属性且属性值为一用空格分隔的字词列表，其中一个等于val的E元素。</td></tr>
+				<tr><td>E[att^="val"]</td><td>选择具有att属性且属性值为以val开头的字符串的E元素。</td></tr>
+				<tr><td>E[att$="val"]</td><td>选择具有att属性且属性值为以val结尾的字符串的E元素。</td></tr>
+				<tr><td>E[att*="val"]</td><td>选择具有att属性且属性值为包含val的字符串的E元素。</td></tr>
+				<tr><td>E[att|="val"]</td><td>选择具有att属性且属性值为以val开头并用连接符"-"分隔的字符串的E元素。(如果属性值仅为val，也将被选择)</td></tr>
+				<tr><td>E:lang(fr)</td><td>匹配使用特殊语言的E元素。</td></tr>
+				<tr><td>E:not(s)</td><td>匹配不含有s选择符的元素E。</td></tr>
+				<tr><td>E:root</td><td>匹配E元素在文档的根元素。</td></tr>
+				<tr><td>E:only-child</td><td>匹配父元素仅有的一个子元素E。</td></tr>
+				<tr><td>nth-of-type(n)</td><td>匹配同类型中的第n个同级兄弟元素E。</td></tr>
+				<tr><td>E:only-of-type</td><td>匹配同类型中的唯一的一个同级兄弟元素E。</td></tr>
+				<tr><td>E:empty</td><td>匹配没有任何子元素（包括text节点）的元素E。</td></tr>
+				<tr><td>E:checked</td><td>匹配用户界面上处于选中状态的元素E。(用于input type为radio与checkbox时)</td></tr>
+				<tr><td>E:enabled</td><td>匹配用户界面上处于可用状态的元素E。</td></tr>
+				<tr><td>E:disabled</td><td>匹配用户界面上处于禁用状态的元素E。</td></tr>
+				<tr><td>E:target</td><td>匹配相关URL指向的E元素。</td></tr>
+				<tr><td>@page:first</td><td>设置页面容器第一页使用的样式。仅用于@page规则</td></tr>
+				<tr><td>@page:left</td><td>置页面容器位于装订线左边的所有页面使用的样式。仅用于@page规则</td></tr>
+				<tr><td>@page:right</td><td>设置页面容器位于装订线右边的所有页面使用的样式。仅用于@page规则</td></tr>
+				<tr><td>E::first-letter</td><td>设置对象内的第一个字符的样式。</td></tr>
+				<tr><td>E::first-line</td><td>设置对象内的第一行的样式。</td></tr>
+				<tr><td>E::before</td><td>设置在对象前（依据对象树的逻辑结构）发生的内容。用来和content属性一起使用</td></tr>
+				<tr><td>E::placeholder</td><td>设置对象文字占位符的样式。</td></tr>
+				<tr><td>E::selection</td><td>设置对象被选择时的颜色。</td></tr>
+			</table>
+		</div>
+	</body>
+</html>

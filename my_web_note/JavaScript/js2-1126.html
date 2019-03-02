@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM</title>
+		<link rel="stylesheet" href="../reset.css" />
+		<style>
+			.item{
+				padding: 2em;
+			}
+			#nodeType{
+				margin-left: 1em;
+			}
+			#nodeType td{
+				padding: 0 5px;
+			}
+			i{
+				color: #f00;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="show-wrap">
+			<h1>DOM(1126)</h1>
+			<h2>1、认识DOM</h2>
+			<p><b>DOM：</b>文档对象模型（Document Object Model，简称DOM），是W3C组织推荐的处理可扩展标志语言的标准编程接口。常用节点：<br />
+				<span class="item">(1)整个文档是一个文档节点；</span><br />
+				<span class="item">(2)每个 HTML元素是元素节点；</span><br />
+				<span class="item">(3)HTML元素内的文本是文本节点；</span><br />
+				<span class="item">(4)每个 HTML属性是属性节点；</span><br />
+				<span class="item">(5)注释是注释节点。</span><br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOM是javascript操作网页的接口，全称为文档对象模型(Document Object Model)。它的作用是将网页转为一个javascript对象，从而可以使用javascript对网页进行各种操作(比如增删内容)。浏览器会根据DOM模型，将HTML文档解析成一系列的节点，再由这些节点组成一个树状结构。DOM的最小组成单位叫做节点(node)。<br />
+			</p>
+			<p><b>DOM节点类型：</b>节点至少拥有nodeType、nodeName和nodeValue这三个基本属性。
+				<table border="1" cellspacing="0" id="nodeType">
+					<caption>DOM节点的12种类型</caption>
+					<tr><th width="120">节点类型</th><th width="30">数值</th><th width="550">说明</th></tr>
+					<tr><td>元素节点</td><td>1</td><td>element对应网页的HTML标签元素</td></tr>
+					<tr><td>属性节点</td><td>2</td><td>attribute对应网页中HTML标签的属性</td></tr>
+					<tr><td>文本节点</td><td>3</td><td>text代表网页中的HTML标签内容</td></tr>
+					<tr><td>CDATA节点</td><td>4</td><td>CDATASection类型只针对基于XML的文档，只出现在XML文档中，表示的是CDATA区域</td></tr>
+					<tr><td>实体引用名称节点</td><td>5</td><td>实体是一个声明，指定了在XML中取代内容或标记而使用的名称</td></tr>
+					<tr><td>实体名称节点</td><td>6</td><td>实体包含两个部分</td></tr>
+					<tr><td>处理指令节点</td><td>7</td><td>ProcessingInstruction</td></tr>
+					<tr><td>注释节点</td><td>8</td><td>comment表示网页中的HTML注释</td></tr>
+					<tr><td>文档节点</td><td>9</td><td>document表示HTML文档，也称为根节点，指向document对象</td></tr>
+					<tr><td>文档类型节点</td><td>10</td><td>DocumentType包含着与文档的doctype有关的所有信息</td></tr>
+					<tr><td>文档片段节点</td><td>11</td><td>在文档中没有对应的标记，是一种轻量级的文档，可以包含和控制节点，但不会像完整的文档那样占用额外的资源。</td></tr>
+					<tr><td>DTD声明节点</td><td>12</td><td>notation代表DTD中声明的符号</td></tr>
+				</table>
+			</p>
+			<h2>2、节点操作</h2>
+			<p><b>获取元素：</b><br />
+				<span class="item">document.getElementByid() //返回值是元素或者null</span><br />
+				<span class="item">document.getElementsByTagName()//返回值是数组</span><br />
+				<span class="item">document.getElementsByName()// 返回值是数组</span><br />
+				<span class="item">document.getElementsByClassName()// 返回值是数组</span><br />
+				<span class="item">document.querySelector('选择器')与document.querySelectorAll('选择器')</span><br />
+				<i class="item">注: 获取的元素是已经创建的对象(节点对象)。querySelector()方法仅仅返回匹配指定选择器的第一个元素。如果你需要返回所有的元素，请使用 querySelectorAll() 方法替代。</i><br />
+			</p>
+
+			<p><b>创建元素：</b><br />
+				<span class="item">var newElement=document.createElement("标签名")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//返回值是一个新的节点对象,是内存中产生.不会直接存在于文档树,要主动添加进dom树才会显示</span><br />
+			</p>
+			<p><b>添加新元素到节点树：</b><br />
+				<span class="item">xxNode.appendChild(newNode)</span><br />
+				<i class="item">注意:调用者是文档树已经有的节点,才会加入到文档树,不然的话就只是存在于内存中</i><br />
+			</p>
+			<p><b>元素的属性：</b><br />
+				<span class="item">xxx.className  //可以有多个类名,但是要用空格隔开  xxx.className+=" xx"</span><br />
+	            <span class="item">xxx.classList  //xxx.classList.add("xxxx1")</span><br />
+			</p>
+		</div>
+	</body>
+</html>

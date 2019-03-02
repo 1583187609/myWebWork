@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网页版计算器</title>
+		<style>
+			table{
+				margin: 15px auto;
+				font-size: 22px;
+				border: 5px outset orange;
+			}
+			.wrong_input{
+				-moz-animation: wrong_input .8s linear;
+				-ms-animation: wrong_input .8s linear;
+				-webkit-animation: wrong_input .8s linear;
+				animation: wrong_input .8s linear;
+			}
+			@-moz-keyframes wrong_input{
+				0%{background-color: #fff;}
+				40%{background-color: #eee;}
+				100%{background-color: #fff;}
+			}
+			@-ms-keyframes wrong_input{
+				0%{background-color: #fff;}
+				40%{background-color: #eee;}
+				100%{background-color: #fff;}
+			}
+			@-webkit-keyframes wrong_input{
+				0%{background-color: #fff;}
+				40%{background-color: #eee;}
+				100%{background-color: #fff;}
+			}
+			@keyframes wrong_input{    /*记得兼容各种内核的浏览器*/
+				0%{background-color: #fff;}
+				40%{background-color: #eee;}
+				100%{background-color: #fff;}
+			}
+			#tab_1,#tab_2,#tab_3{
+				border: 3px outset rgba(15,10,10,0.3);
+			}
+			input{
+				outline: none;
+				box-shadow: 5px 5px 2px rgba(100,100,100,0.8) inset;
+			}
+			[type=button]{
+				cursor: pointer;
+				width: 60px;
+				height: 40px;
+				border-radius: 5px;
+				background-color: #fff;
+				box-shadow: 3px 3px 2px rgba(100,100,100,0.8) inset;
+			}
+			#text_num{
+				text-align: right;
+				height: 50px;
+				width: 100%;
+				background: #FFF;
+				font-size: 22px;
+			}
+			td{
+				height: 5px;
+				background: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<table cellspacing="0">
+			<tr>
+				<td colspan="2"><input type="text" id="text_num" value="0"></td>
+				<td style="text-align: center;">
+					<input type="button" value="清零" onclick="clearZero()"/>
+					<input type="button" value="退格" onclick="backspace()"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="tab_1">
+						<tr>
+							<td><input type="button" value="sin" onclick="math('sin')"/></td>
+							<td><input type="button" value="cos" onclick="math('cos')"/></td>
+							<td><input type="button" value="tan" onclick="math('tan')"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="asin" onclick="math('asin')"/></td>
+							<td><input type="button" value="acon" onclick="math('acon')"/></td>
+							<td><input type="button" value="atan" onclick="math('atan')"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="PI" onclick="math('PI')"/></td>
+							<td><input type="button" value="1/X" onclick="math('1/X')"/></td>
+							<td><input type="button" value="exp" onclick="math('exp')"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="lnx" onclick="math('lnx')"/></td>
+							<td><input type="button" value="lgx" onclick="math('lgx')"/></td>
+							<td><input type="button" value="n!" onclick="math('n!')"/></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table id="tab_2">
+						<tr>
+							<td><input type="button" value="7" onclick="num(7)"/></td>
+							<td><input type="button" value="8" onclick="num(8)"/></td>
+							<td><input type="button" value="9" onclick="num(9)"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="4" onclick="num(4)"/></td>
+							<td><input type="button" value="5" onclick="num(5)"/></td>
+							<td><input type="button" value="6" onclick="num(6)"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="1" onclick="num(1)"/></td>
+							<td><input type="button" value="2" onclick="num(2)"/></td>
+							<td><input type="button" value="3" onclick="num(3)"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="0" onclick="num(0)"/></td>
+							<td><input type="button" value="." onclick="decimal()"/></td>
+							<td><input type="button" value="=" onclick="calculate('=')"/></td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<table id="tab_3">
+						<tr>
+							<td><input type="button" value="+" onclick="calculate('+')"/></td>
+							<td><input type="button" value="取整" onclick="math('i')"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="-" onclick="calculate('-')"/></td>
+							<td><input type="button" value="取余" onclick="calculate('%')"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="*" onclick="calculate('*')"/></td>
+							<td><input type="button" value="x^y" onclick="calculate('x^y')"/></td>
+						</tr>
+						<tr>
+							<td><input type="button" value="/" onclick="calculate('/')"/></td>
+							<td><input type="button" value="+/-" onclick="plusMinus()"/></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<script>
+			var Boo=false; 
+			var result=0;  //存储数据计算后的结果
+			var ope;   //存储计算符号的变量
+			function $(a){
+				return document.getElementById(a)
+			}
+			function wrong_input(){   //错误操作提示
+				var txt=$('text_num');
+				txt.classList.add("wrong_input");   //错入输入时，显示屏会变暗一下
+			}
+			function decimal(){    //小数点的获取
+				var txt=$('text_num');
+				if(Boo){
+					txt.value='0.';
+				}else{
+					if(txt.value.indexOf('.')==-1){   //判断之前是否有小数点
+						txt.value+=".";	
+					}
+				}
+				Boo=false;
+			}
+			function num(Num){    //显示屏上即时输出数字
+				var txt=$("text_num");
+				if(Boo){
+					txt.value=Num;   //若接受过运算符，文本框清零
+					Boo=false;
+				}else{
+					if(txt.value=='0'){
+						txt.value=Num;
+					}
+					else{
+						txt.value+=Num;
+					}
+				}		
+			}
+			function calculate(op){   //加减乘除
+				var onum=$('text_num').value;
+				if(onum==''){
+					onum=0;
+				}
+				Boo=true;
+				switch(ope){
+					case "+":
+						result+=parseFloat(onum);break;
+					case "-":
+						result-=parseFloat(onum);break;
+					case "*":
+						result*=parseFloat(onum);break;
+					case "/":
+						result/=parseFloat(onum);break;
+					case "=":
+						result=parseFloat(onum);break;
+					case "%":  
+						result%=onum;break;
+					case 'x^y':     //求x的y次方
+						result=Math.pow(result,onum);break;
+					case '@':   //取整
+					    result=Math.round(parseFloat(onum));
+					default:result=parseFloat(onum);
+				}
+				$('text_num').value=result;
+				ope=op;
+			}
+			function plusMinus(){    //取正负符号
+				var onum=$('text_num').value;
+				if(onum==''){
+					alert("数据不能为空")
+				}else{
+					$("text_num").value*=-1;
+				}
+			}
+			function clearZero(){     //清零
+				$("text_num").value='0';
+				return 0;
+			}
+			function backspace(){    //退格
+				var txt=$('text_num');
+				txt.value=txt.value.substring(0,txt.value.length-1);
+				if(txt.value==''){txt.value=0}
+			}
+			//三角函数
+			function math(op){    //取正负符号
+				var onum=$('text_num').value;
+				if(onum==''){alert("数据不能为空")}
+				Boo=true;
+				with(Math){
+					switch(op){
+						case 'sin': result=sin(onum);break;
+						case 'cos': result=cos(onum);break;
+						case 'tan': result=tan(onum);break;
+						case 'asin': result=asin(onum);break;
+						case 'acos': result=acos(onum);break;
+						case 'atan': result=atan(onum);break;
+						case 'PI': result=PI;break;
+						case '1/X': result=1/onum;break;
+						case 'exp': result=exp(onum);break;
+						case 'lnx': result=log(onum);break;
+						case 'lgx': result=log(onum)/log(10);break;
+						case 'i': result=floor(onum);break;   //取整
+						case 'n!':result=jiecheng(onum);break;
+						default:result=parseFloat(onum);
+					}
+					$('text_num').value=result;
+				}
+				function jiecheng(){
+					if(a==1){
+						return 1;
+					}else{
+						return jiecheng(a-1)*a;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
